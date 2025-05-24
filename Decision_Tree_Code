@@ -1,0 +1,140 @@
+flowchart TD
+    Start([NWEA Decision Tree]) --> Q1{Employee under<br/>NWEA definitions?}
+    
+    Q1 -->|No| End1[Not covered by NWEA<br/>Consult Contracts Act]
+    Q1 -->|Yes| Q2{Work in Norway or<br/>for Norwegian employer?}
+    
+    Q2 -->|No| End2[Outside NWEA scope<br/>Check international rules]
+    Q2 -->|Yes| Q3{Special sector?<br/>Maritime/Fishing/Aviation/Agriculture}
+    
+    Q3 -->|Yes| End3[Special legislation applies<br/>Not covered by NWEA]
+    Q3 -->|No| Q4{Workplace problem?}
+    
+    Q4 -->|No| End4[No violation to assess]
+    Q4 -->|Yes| Category{Select issue type}
+    
+    Category -->|Working Environment| BranchA[Working Environment<br/>Issues]
+    Category -->|Hours & Leave| BranchB[Working Hours &<br/>Leave Issues]
+    Category -->|Discrimination| BranchC[Discrimination &<br/>Harassment]
+    Category -->|Contract & Pay| BranchD[Contract &<br/>Pay Issues]
+    Category -->|Termination| E1{Main termination<br/>concern?}
+    Category -->|Retaliation| BranchF[Whistleblowing<br/>Retaliation]
+    Category -->|Health & Safety| BranchG[Health & Safety<br/>Concerns]
+    Category -->|Other| BranchH[Other Rights &<br/>Obligations]
+    
+    %% Branch E - Termination Issues Detail
+    E1 -->|No reason given| E2a{Any explanation<br/>provided?}
+    E1 -->|Invalid reason| E2b{What reason<br/>was given?}
+    E1 -->|Wrong process| E2c{Process problem<br/>type?}
+    E1 -->|Protected period| E2e{Which protected<br/>period?}
+    
+    %% E2a - No Reason Given
+    E2a -->|None at all| V1[§15-7: No valid reason]
+    E2a -->|Vague only| V2[§15-7: Insufficient reason]
+    E2a -->|Refused| V3[§15-7: No valid reason]
+    
+    %% E2b - Invalid Reason
+    E2b -->|Personal traits| E3b1{Which characteristic?}
+    E2b -->|Union/Political| V4[§15-7 + §13-1:<br/>Union discrimination]
+    E2b -->|Whistleblowing| V5[§15-7 + §2A-4:<br/>Retaliation]
+    E2b -->|Restructuring| E3b2{Alternative position<br/>available?}
+    
+    %% E3b1 - Personal Characteristics
+    E3b1 -->|Age| V6[§15-7 + §13-1: Age]
+    E3b1 -->|Gender| V7[§15-7: Gender]
+    E3b1 -->|Race/Ethnicity| V8[§15-7: Ethnicity]
+    E3b1 -->|Religion| V9[§15-7: Religion]
+    E3b1 -->|Disability| V10[§15-7: Disability]
+    E3b1 -->|Sexual orientation| V11[§15-7: Sexual orientation]
+    
+    %% E3b2 - Organizational Changes
+    E3b2 -->|Yes| V12[§15-7: No alternative offered]
+    E3b2 -->|No| NV1[No violation:<br/>Legitimate redundancy]
+    
+    %% E2c - Notice and Process Issues
+    E2c -->|Short notice| E3c1{Employment length &<br/>notice received?}
+    E2c -->|Immediate dismissal| E3c2{Reason for<br/>immediate dismissal?}
+    E2c -->|No written notice| V13[§15-4: No written notice]
+    E2c -->|No meeting| V14[§15-1: No consultation]
+    E2c -->|Bad meeting| E3c3{Meeting problem?}
+    
+    %% E3c1 - Notice Periods (simplified)
+    E3c1 -->|Under 5 years,<br/>under 1 month| V15[§15-3: Short notice]
+    E3c1 -->|5+ years,<br/>under 2 months| V16[§15-3: Short notice]
+    E3c1 -->|5-10 years,<br/>under 3 months| V17[§15-3: Short notice]
+    E3c1 -->|10+ years, 50+,<br/>under 4 months| V18[§15-3: Short notice]
+    E3c1 -->|10+ years, 55+,<br/>under 5 months| V19[§15-3: Short notice]
+    E3c1 -->|10+ years, 60+,<br/>under 6 months| V20[§15-3: Short notice]
+    
+    %% E3c2 - Summary Dismissal
+    E3c2 -->|No reason| V21[§15-7: No justification]
+    E3c2 -->|Minor violation| V22[§15-14: Disproportionate]
+    
+    %% E3c3 - Meeting Problems
+    E3c3 -->|No representative| V23[§15-1: Rep excluded]
+    E3c3 -->|Views ignored| V24[§15-1: Poor consultation]
+    E3c3 -->|Pre-decided| V25[§15-1: Predetermined]
+    E3c3 -->|Poor notice| V26[§15-1: Meeting notice]
+    
+    %% E2e - Protected Period Dismissal
+    E2e -->|Sick leave| V27[§15-8: Sick leave dismissal]
+    E2e -->|Pregnancy| V28[§15-9: Pregnancy dismissal]
+    E2e -->|Military service| V29[§15-10: Military dismissal]
+    E2e -->|Safety rep| V30[§15-8: Safety rep dismissal]
+    E2e -->|Forced retirement| V31[§15-13: Illegal retirement]
+    
+    %% Final Steps - cleaner flow
+    V1 --> Final[Potential NWEA Violation<br/>Proceed to Documentation]
+    V2 --> Final
+    V3 --> Final
+    V4 --> Final
+    V5 --> Final
+    V6 --> Final
+    V7 --> Final
+    V8 --> Final
+    V9 --> Final
+    V10 --> Final
+    V11 --> Final
+    V12 --> Final
+    V13 --> Final
+    V14 --> Final
+    V15 --> Final
+    V16 --> Final
+    V17 --> Final
+    V18 --> Final
+    V19 --> Final
+    V20 --> Final
+    V21 --> Final
+    V22 --> Final
+    V23 --> Final
+    V24 --> Final
+    V25 --> Final
+    V26 --> Final
+    V27 --> Final
+    V28 --> Final
+    V29 --> Final
+    V30 --> Final
+    V31 --> Final
+    NV1 --> Final
+    
+    BranchA --> Final
+    BranchB --> Final
+    BranchC --> Final
+    BranchD --> Final
+    BranchF --> Final
+    BranchG --> Final
+    BranchH --> Final
+    
+    Final --> Submit[Document incident<br/>Upload evidence<br/>Submit report]
+    Submit --> Thanks[Report submitted<br/>Thank you]
+    
+    %% Styling
+    classDef violation fill:#ffcccc,stroke:#ff0000,stroke-width:2px
+    classDef noviolation fill:#ccffcc,stroke:#00aa00,stroke-width:2px
+    classDef endpoint fill:#e1f5fe,stroke:#0277bd,stroke-width:2px
+    classDef branch fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    
+    class V1,V2,V3,V4,V5,V6,V7,V8,V9,V10,V11,V12,V13,V14,V15,V16,V17,V18,V19,V20,V21,V22,V23,V24,V25,V26,V27,V28,V29,V30,V31 violation
+    class NV1 noviolation
+    class End1,End2,End3,End4,Thanks endpoint
+    class BranchA,BranchB,BranchC,BranchD,BranchF,BranchG,BranchH branch
